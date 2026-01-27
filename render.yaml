@@ -1,0 +1,18 @@
+# render.yaml
+services:
+  - type: web
+    name: foam-business-backend
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 90d
+      - key: FRONTEND_URL
+        value: https://your-frontend.vercel.app
